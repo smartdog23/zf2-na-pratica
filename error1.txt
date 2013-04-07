@@ -1,0 +1,13 @@
+PHPUnit 3.7.19 by Sebastian Bergmann.
+
+Configuration read from /media/screencasts/zf2/zf2-na-pratica/module/Admin/tests/phpunit.xml
+
+........
+
+Time: 11 seconds, Memory: 8.25Mb
+
+[30;42m[2KOK (8 tests, 21 assertions)
+[0m[2K
+Generating code coverage report in Clover XML format ... done
+
+Generating code coverage report in HTML format ... done

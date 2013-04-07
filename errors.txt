@@ -1,0 +1,5 @@
+PHPUnit 3.7.19 by Sebastian Bergmann.
+
+Configuration read from /media/screencasts/zf2/zf2-na-pratica/module/Admin/tests/phpunit.xml
+
+......
