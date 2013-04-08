@@ -1,60 +1,48 @@
 <?php
-namespace Admin\Controller;
+namespace Application\Form;
 
-use Zend\View\Model\ViewModel;
-use Core\Controller\ActionController;
-use Admin\Form\Login;
+use Zend\Form\Form;
 
-/**
- * Controlador que gerencia os posts
- * 
- * @category Admin
- * @package Controller
- * @author  Elton Minetto<eminetto@coderockr.com>
- */
-class AuthController extends ActionController
+class Post extends Form
 {
-    /**
-     * Mostra o formulário de login
-     * @return void
-     */
-    public function indexAction()
+    public function __construct()
     {
-        $form = new Login();
-        return new ViewModel(array(
-            'form' => $form
+        parent::__construct('post');
+        $this->setAttribute('method', 'post');
+        $this->setAttribute('action', '/admin/index/save');
+        
+        $this->add(array(
+            'name' => 'id',
+            'attributes' => array(
+                'type'  => 'hidden',
+            ),
         ));
-    }
-
-    /**
-     * Faz o login do usuário
-     * @return void
-     */
-    public function loginAction()
-    {
-        $request = $this->getRequest();
-        if (!$request->isPost()) {
-            throw new \Exception('Acesso inválido');
-        }
-
-        $data = $request->getPost();
-        $service = $this->getService('Admin\Service\Auth');
-        $auth = $service->authenticate(
-            array('username' => $data['username'], 'password' => $data['password'])
-        );
         
-        return $this->redirect()->toUrl('/');
-    }
-
-    /**
-     * Faz o logout do usuário
-     * @return void
-     */
-    public function logoutAction()
-    {
-        $service = $this->getService('Admin\Service\Auth');
-        $auth = $service->logout();
-        
-        return $this->redirect()->toUrl('/');
+        $this->add(array(
+            'name' => 'title',
+            'attributes' => array(
+                'type'  => 'text',
+            ),
+            'options' => array(
+                'label' => 'Título',
+            ),
+        ));
+        $this->add(array(
+            'name' => 'description',
+            'attributes' => array(
+                'type'  => 'textarea',
+            ),
+            'options' => array(
+                'label' => 'Texto do post',
+            ),
+        ));
+        $this->add(array(
+            'name' => 'submit',
+            'attributes' => array(
+                'type'  => 'submit',
+                'value' => 'Enviar',
+                'id' => 'submitbutton',
+            ),
+        ));
     }
 }
