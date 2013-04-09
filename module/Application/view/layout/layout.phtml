@@ -29,7 +29,15 @@
                     <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Skeleton Application') ?></a>
                     <div class="nav-collapse">
                         <ul class="nav">
-                            <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+                            <li class="active"><a href="/"><?php echo $this->translate('Home') ?></a></li>
+                            <li>
+                                <?php $user = $this->session('user'); ?>
+                                <?php if ($user): ?>
+                                    <a href="/admin/auth/logout"><?php echo $this->translate('Sair') ?></a>
+                                <?php else: ?>
+                                    <a href="/admin/auth/index"><?php echo $this->translate('Entrar') ?></a>
+                                <?php endif;?>
+                            </li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>

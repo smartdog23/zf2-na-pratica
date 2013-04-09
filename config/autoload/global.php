@@ -25,6 +25,15 @@ return array(
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
         ),
     ),
+//     'db' => array(
+//             'driver' => 'Pdo',
+//             'dsn' => 'mysql:dbname=dog_geelo_v2;host=mysqldbdog.geelo.net',
+//             'driver_options' => array(
+//                     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
+//             ),
+//             'username' => 'dog_geelo',
+//             'password' => 'bdgee2544',
+//     ),
     'acl' => array(
         'roles' => array(
             'visitante'   => null,
