@@ -55,15 +55,30 @@ return array(
         ),
     ),
     'service_manager' => array(
-    		'factories' => array(
-    				'Session' => function($sm) {
-    					return new Zend\Session\Container('ZF2napratica');
-    				},
-    				'Admin\Service\Auth' => function($sm) {
-    					$dbAdapter = $sm->get('DbAdapter');
-    					return new Admin\Service\Auth($dbAdapter);
-    				},
-    		)
+        'factories' => array(
+            'Session' => function($sm) {
+                return new Zend\Session\Container('ZF2napratica');
+            },
+            'Admin\Service\Auth' => function($sm) {
+                $dbAdapter = $sm->get('DbAdapter');
+                return new Admin\Service\Auth($dbAdapter);
+            },
+            'Cache' => function($sm) {
+                $config = include __DIR__ . '/../../../config/application.config.php';
+                $config = $sm->get('Config');
+                $cache = \Zend\Cache\StorageFactory::factory(
+                    array(
+                        'adapter' => $config['cache']['adapter'],
+                        'ttl' => $config['cache']['adapter'],
+                        'plugins' => array(
+                            'exception_handler' => array('throw_exceptions' => false),
+                            'Serializer'
+                        ),
+                    )
+                );
+                return $cache;
+            }
+        )
     ),
 //     'db' => array( //module can have a specific db configuration
 //         'driver' => 'PDO_SQLite',

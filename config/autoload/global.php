@@ -68,5 +68,9 @@ return array(
                 )
             ),
         )
+    ),
+    'cache' => array (
+        'adapter' => 'memory',
+        'ttl' => 0
     )
 );
