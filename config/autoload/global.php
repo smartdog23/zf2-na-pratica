@@ -47,6 +47,7 @@ return array(
             'Admin\Controller\Auth.index',
             'Admin\Controller\Auth.login',
             'Admin\Controller\Auth.logout',
+            'Application\Controller\Index.comments'
         ),
         'privilege' => array(
             'visitante' => array(
@@ -55,6 +56,7 @@ return array(
                     'Admin\Controller\Auth.index',
                     'Admin\Controller\Auth.login',
                     'Admin\Controller\Auth.logout',
+                    'Application\Controller\Index.comments'
                 )
             ),
             'redator' => array(
