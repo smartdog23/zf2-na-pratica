@@ -21,6 +21,11 @@ class IndexController extends ActionController
      */
     public function saveAction()
     {
+//         $translator = $this->getServiceLocator()->get('translator');
+        $translator = $this->getService('translator');
+//         $cache = $this->getService('Cache');
+//         $translator->getCache($cache);
+        \Zend\Validator\AbstractValidator::setDefaultTranslator($translator);
         $form = new PostForm();
         $request = $this->getRequest();
         if ($request->isPost()) {

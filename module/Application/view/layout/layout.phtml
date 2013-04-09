@@ -33,9 +33,9 @@
                             <li>
                                 <?php $user = $this->session('user'); ?>
                                 <?php if ($user): ?>
-                                    <a href="/admin/auth/logout"><?php echo $this->translate('Sair') ?></a>
+                                    <a href="/admin/auth/logout"><?php echo $this->translate('Logout') ?></a>
                                 <?php else: ?>
-                                    <a href="/admin/auth/index"><?php echo $this->translate('Entrar') ?></a>
+                                    <a href="/admin/auth/index"><?php echo $this->translate('Login') ?></a>
                                 <?php endif;?>
                             </li>
                         </ul>
